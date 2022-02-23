@@ -162,7 +162,7 @@ def min_value(board,depth,alpha,beta):
     for action in actions(board):
         # v = max(v, min_value(result(board, action))) with depth optimization and apha beta pruning
         aux, act = max_value(result(board, action),depth-1,alpha,beta)
-        beta=max(beta,aux)
+        beta=min(beta,aux)
         if aux < v:
             v = aux
             move = action
